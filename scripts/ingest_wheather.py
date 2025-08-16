@@ -15,14 +15,17 @@ and finally we specify the config file name
 Accorging to the os linux, mac or windows the path will be built accordingly(/ or \ or \\)
 """
 
+if not API_KEY:
+    config_path = os.path.join(os.path.dirname(__file__), '..','config','secrets.json')
+    with open(config_path, 'r') as reader:
+        config = json.load(reader)
+    API_KEY = config['api_key']
+
 config_path = os.path.join(os.path.dirname(__file__), '..','config','dev.json')
 
 with open(config_path, 'r') as reader:
     config = json.load(reader)
-
-if not API_KEY:
-    API_KEY = config['api_key']
-cities = config['cities'] 
+cities = config['cities']
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 output_dir = Path(os.path.join(os.path.dirname(__file__), '..', 'data','raw'))
