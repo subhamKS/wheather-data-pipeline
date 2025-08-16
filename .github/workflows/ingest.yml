@@ -25,3 +25,9 @@ jobs:
         env:
           WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
         run: python scripts/ingest_weather.py
+
+      - name: Upload weather data
+        uses: actions/upload-artifact@v3
+        with:
+          name: weather-data
+          path: data/raw/**
