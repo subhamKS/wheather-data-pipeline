@@ -24,7 +24,7 @@ jobs:
       - name: Run ingestion
         env:
           WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
         run: python scripts/ingest_weather.py
